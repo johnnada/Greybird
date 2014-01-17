@@ -39,7 +39,13 @@
 #shutdown_dialog {
     border-style: none;
     border-radius: 5px;
-    background-color: @lightdm_bg_color;
+    background-image: linear-gradient(to bottom,
+                                      shade(@lightdm_bg_color, 1.12),
+                                      shade(@lightdm_bg_color, 1.02) 10%,
+                                      shade(@lightdm_bg_color, 0.99) 80%,
+                                      shade(@lightdm_bg_color, 0.90)
+                                      );
+
     color: @lightdm_fg_color;
 
     /* draw border using box-shadow */
@@ -77,17 +83,23 @@
     border-style: solid;
     border-color: shade(@lightdm_bg_color, 0.8);
     border-radius: 3px;
-    background-color: @lightdm_bg_color;
-    background-image: none;
+    background-image: linear-gradient(to bottom,
+                                      shade(@lightdm_bg_color, 0.95),
+                                      shade(@lightdm_bg_color, 0.97) 30%,
+                                      shade(@lightdm_bg_color, 1.02)
+                                      );
                                       
-    box-shadow: inset 1px 0 alpha(@dark_shadow, 0.10),
-                inset 0 1px alpha(@dark_shadow, 0.12),
-                inset -1px 0 alpha(@dark_shadow, 0.10);
+    box-shadow: none;
+    transition: all 150ms ease-out;
 }
 
 #login_window .entry:focus,
 #login_window .entry:hover {
-    border-color: shade(@lightdm_bg_color, 0.6);
+    border-color: shade(@lightdm_bg_color, 0.7);
+
+    box-shadow: inset 1px 0 alpha(@dark_shadow, 0.10),
+                inset 0 1px alpha(@dark_shadow, 0.12),
+                inset -1px 0 alpha(@dark_shadow, 0.10);
 }
 
 #login_window .button,
@@ -97,29 +109,41 @@
     border-width: 1px;
     border-color: shade(@lightdm_bg_color, 0.8);
     border-radius: 3px;
-    background-color: @lightdm_bg_color;
-    background-image: none;
+    background-image: linear-gradient(to bottom,
+                                      shade(@lightdm_bg_color, 1.02),
+                                      shade(@lightdm_bg_color, 0.95) 90%,
+                                      shade(@lightdm_bg_color, 0.90)
+                                      );
+
+    color: @lightdm_fg_color;
                                       
     box-shadow: inset 1px 0px alpha(@light_shadow, 0.1),
                 inset -1px 0px alpha(@light_shadow, 0.1),
                 inset 0px 1px alpha(@light_shadow, 0.1),
                 inset 0px -1px alpha(@light_shadow, 0.1);
+
+    transition: all 150ms ease-out;
 }
 
 #login_window .button:hover,
 #restart_dialog .button:hover,
 #shutdown_dialog .button:hover {
-    background-color: shade(@lightdm_bg_color, 1.1);
+    border-color: shade(@lightdm_bg_color, 0.7);
 }
 
 #user_image {
-    padding: 1px;
+    padding: 3px;
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom,
+                                      shade(@lightdm_bg_color, 1.02),
+                                      shade(@lightdm_bg_color, 0.90)
+                                      );
 
     /* draw border using box-shadow */
-    box-shadow: inset 1px 0 shade(@lightdm_bg_color, 0.6),
-                inset -1px 0 shade(@lightdm_bg_color, 0.6),
-                inset 0 1px shade(@lightdm_bg_color, 0.6),
-                inset 0 -1px shade(@lightdm_bg_color, 0.6);
+    box-shadow: inset 1px 0 shade(@lightdm_bg_color, 0.8),
+                inset -1px 0 shade(@lightdm_bg_color, 0.8),
+                inset 0 1px shade(@lightdm_bg_color, 0.8),
+                inset 0 -1px shade(@lightdm_bg_color, 0.8);
 }
 
 /******************
@@ -132,19 +156,40 @@
 #restart_dialog .button:focus,
 #shutdown_dialog .button:focus {
     border-color: shade(@theme_selected_bg_color, 0.8);
+    background-image: linear-gradient(to bottom,
+                                      shade(@theme_selected_bg_color, 1.02),
+                                      shade(@theme_selected_bg_color, 0.95) 90%,
+                                      shade(@theme_selected_bg_color, 0.90)
+                                      );
+
+    color: @theme_selected_fg_color;
+}
+
+#login_window .button.default:hover,
+#restart_dialog .button.default:hover,
+#shutdown_dialog .button.default:hover,
+#login_window .button:focus,
+#restart_dialog .button:focus,
+#shutdown_dialog .button:focus {
+    border-color: shade(@theme_selected_bg_color, 0.7);
 }
 
 /****************
  * login button *
  ****************/
 #login_button.button {
-    border-color: shade(@theme_selected_bg_color, 0.8);
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
+    border-color: shade(@lightdm_bg_color, 0.8);
+    background-image: linear-gradient(to bottom,
+                                      shade(@lightdm_bg_color, 1.02),
+                                      shade(@lightdm_bg_color, 0.95) 90%,
+                                      shade(@lightdm_bg_color, 0.90)
+                                      );
+
+    color: @lightdm_fg_color
 }
 
 #login_button.button:hover {
-    background-color: shade(@theme_selected_bg_color, 1.1);
+    border-color: shade(@lightdm_bg_color, 0.7);
 }
 
 /*******************
@@ -152,12 +197,17 @@
  *******************/
 #shutdown_button.button {
     border-color: shade(@error_bg_color, 0.8);
-    background-color: @error_bg_color;
+    background-image: linear-gradient(to bottom,
+                                      shade(@error_bg_color, 1.02),
+                                      shade(@error_bg_color, 0.95) 90%,
+                                      shade(@error_bg_color, 0.90)
+                                      );
+
     color: @error_fg_color;
 }
 
 #shutdown_button.button:hover {
-    background-color: shade(@error_bg_color, 1.1);
+    border-color: shade(@error_bg_color, 0.7);
 }
 
 /******************
@@ -165,10 +215,15 @@
  ******************/
 #restart_button.button {
     border-color: shade(@warning_bg_color, 0.8);
-    background-color: @warning_bg_color;
+    background-image: linear-gradient(to bottom,
+                                      shade(@warning_bg_color, 1.02),
+                                      shade(@warning_bg_color, 0.95) 90%,
+                                      shade(@warning_bg_color, 0.90)
+                                      );
+
     color: @warning_fg_color;
 }
 
 #restart_button.button:hover {
-    background-color: shade(@warning_bg_color, 1.1);
+    border-color: shade(@warning_bg_color, 0.7);
 }
