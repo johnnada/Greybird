@@ -63,6 +63,10 @@
     font: Raleway 24px;
 }
 
+#login_window #user_combobox .menu {
+    font: normal;
+}
+
 #login_window #user_combobox .arrow {
     color: mix(@lightdm_fg_color, @lightdm_bg_color, 0.5);
 }
