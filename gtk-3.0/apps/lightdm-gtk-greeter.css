@@ -35,8 +35,8 @@
  * login window *
  ****************/
 #login_window,
-#restart_dialog,
-#shutdown_dialog {
+#shutdown_dialog,
+#restart_dialog {
     border-style: none;
     border-radius: 5px;
     background-image: linear-gradient(to bottom,
@@ -103,8 +103,8 @@
 }
 
 #login_window .button,
-#restart_dialog .button,
-#shutdown_dialog .button {
+#shutdown_dialog .button,
+#restart_dialog .button {
     padding: 3px 15px;
     border-width: 1px;
     border-color: shade(@lightdm_bg_color, 0.8);
@@ -126,8 +126,14 @@
 }
 
 #login_window .button:hover,
+#login_window .button:active,
+#login_window .button:active:hover,
+#shutdown_dialog .button:hover
+#shutdown_dialog .button:active,
+#shutdown_dialog .button:active:hover,
 #restart_dialog .button:hover,
-#shutdown_dialog .button:hover {
+#restart_dialog .button:active,
+#restart_dialog .button:active:hover {
     border-color: shade(@lightdm_bg_color, 0.7);
 }
 
@@ -146,15 +152,24 @@
                 inset 0 -1px shade(@lightdm_bg_color, 0.8);
 }
 
-/******************
- * default button *
- ******************/
+/******************************
+ * default and focused button *
+ ******************************/
 #login_window .button.default,
-#restart_dialog .button.default,
 #shutdown_dialog .button.default,
+#restart_dialog .button.default,
 #login_window .button:focus,
+#login_window .button:hover:focus,
+#login_window .button:active:focus,
+#login_window .button:active:hover:focus,
+#shutdown_dialog .button:focus,
+#shutdown_dialog .button:hover:focus,
+#shutdown_dialog .button:active:focus,
+#shutdown_dialog .button:active:hover:focus,
 #restart_dialog .button:focus,
-#shutdown_dialog .button:focus {
+#restart_dialog .button:hover:focus,
+#restart_dialog .button:active:focus,
+#restart_dialog .button:active:hover:focus {
     border-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
                                       shade(@theme_selected_bg_color, 1.02),
@@ -166,11 +181,8 @@
 }
 
 #login_window .button.default:hover,
-#restart_dialog .button.default:hover,
 #shutdown_dialog .button.default:hover,
-#login_window .button:focus,
-#restart_dialog .button:focus,
-#shutdown_dialog .button:focus {
+#restart_dialog .button.default:hover {
     border-color: shade(@theme_selected_bg_color, 0.7);
 }
 
@@ -188,7 +200,9 @@
     color: @lightdm_fg_color
 }
 
-#login_button.button:hover {
+#login_button.button:hover,
+#login_button.button:active,
+#login_button.button:active:hover {
     border-color: shade(@lightdm_bg_color, 0.7);
 }
 
@@ -206,7 +220,9 @@
     color: @error_fg_color;
 }
 
-#shutdown_button.button:hover {
+#shutdown_button.button:hover
+#shutdown_button.button:active,
+#shutdown_button.button:active:hover {
     border-color: shade(@error_bg_color, 0.7);
 }
 
@@ -224,6 +240,8 @@
     color: @warning_fg_color;
 }
 
-#restart_button.button:hover {
+#restart_button.button:hover,
+#restart_button.button:active,
+#restart_button.button:active:hover {
     border-color: shade(@warning_bg_color, 0.7);
 }
