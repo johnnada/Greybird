@@ -41,7 +41,6 @@
     border-radius: 5px;
     background-color: @lightdm_bg_color;
     color: @lightdm_fg_color;
-    font: Open Sans;
 
     /* draw border using box-shadow */
     box-shadow: inset 1px 0 shade(@lightdm_bg_color, 0.6),
@@ -60,8 +59,8 @@
 }
 
 #login_window #user_combobox {
-    font: Raleway 24px;
     color: @lightdm_fg_color;
+    font: Raleway 24px;
 }
 
 #login_window #user_combobox .arrow {
