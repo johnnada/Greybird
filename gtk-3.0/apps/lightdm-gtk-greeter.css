@@ -61,7 +61,8 @@
 #login_window GtkComboBox .button:active {
     padding: 0;
     background: none;
-    border-style: none;
+    border-style: none;                                      
+    box-shadow: none;
 }
 
 #login_window #user_combobox {
