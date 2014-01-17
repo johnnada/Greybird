@@ -1,27 +1,28 @@
-/* General colors for the greeter */
-#login_window,
-#panel_window,
-#restart_dialog,
-#shutdown_dialog,
-#login_window,
-#login_window #user_combobox .arrow {
-    background-color: shade (@lightdm_bg_color, 0.9);
-    color: @lightdm_fg_color;
+/*********
+ * panel *
+ *********/
+#panel_window {
+    background-color: transparent;
+    color: white;
+    font: bold;
+    text-shadow: 0 1px alpha(black, 0.5);
+    icon-shadow: 0 1px alpha(black, 0.5);
 }
 
 #panel_window .menubar,
 #panel_window .menubar > .menuitem {
     background-color: transparent;
-    color: @lightdm_fg_color;
+    color: white;
 }
 
 #panel_window .menubar .menuitem {
-    text-shadow: 0px 1px alpha(@dark_shadow, 1.0);
     font: bold;
+    text-shadow: 0 1px alpha(black, 0.5);
+    icon-shadow: 0 1px alpha(black, 0.5);
 }
 
 #panel_window .menubar .menuitem:insensitive {
-    color: alpha (@lightdm_fg_color, 0.7);
+    color: alpha(white, 0.7);
     text-shadow: none;
 }
 
@@ -30,86 +31,141 @@
     text-shadow: none;
 }
 
-#panel_window {
-    box-shadow: inset 0px -1px alpha(@light_shadow,0.2);
-}
-
-/* Add border-outlines to all the dialogs */
+/****************
+ * login window *
+ ****************/
+#login_window,
 #restart_dialog,
-#shutdown_dialog,
-#login_window {
-    border-width: 0px;
-    border-style: solid;
-    border-color: @dark_shadow;
-    box-shadow: inset 1px 0px alpha(@light_shadow,0.2),
-                inset -1px 0px alpha(@light_shadow,0.2),
-                inset 0px 1px alpha(@light_shadow,0.2),
-                inset 0px -1px alpha(@light_shadow,0.2);
-    border-radius: 10px;
+#shutdown_dialog {
+    border-style: none;
+    border-radius: 5px;
+    background-color: @lightdm_bg_color;
+    color: @lightdm_fg_color;
+    font: Open Sans;
+
+    /* draw border using box-shadow */
+    box-shadow: inset 1px 0 shade(@lightdm_bg_color, 0.6),
+                inset -1px 0 shade(@lightdm_bg_color, 0.6),
+                inset 0 1px shade(@lightdm_bg_color, 0.6),
+                inset 0 -1px shade(@lightdm_bg_color, 0.6);
 }
 
-/* Set all buttons and the user-avatar to a dark style */
+#login_window GtkComboBox .button,
+#login_window GtkComboBox .button:focus,
+#login_window GtkComboBox .button:hover,
+#login_window GtkComboBox .button:active {
+    padding: 0;
+    background: none;
+    border-style: none;
+}
+
+#login_window #user_combobox {
+    font: Raleway 24px;
+    color: @lightdm_fg_color;
+}
+
+#login_window #user_combobox .arrow {
+    color: mix(@lightdm_fg_color, @lightdm_bg_color, 0.5);
+}
+
+#login_window .entry {
+    padding: 3px 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@lightdm_bg_color, 0.8);
+    border-radius: 3px;
+    background-color: @lightdm_bg_color;
+    background-image: none;
+                                      
+    box-shadow: inset 1px 0 alpha(@dark_shadow, 0.10),
+                inset 0 1px alpha(@dark_shadow, 0.12),
+                inset -1px 0 alpha(@dark_shadow, 0.10);
+}
+
+#login_window .entry:focus,
+#login_window .entry:hover {
+    border-color: shade(@lightdm_bg_color, 0.6);
+}
+
 #login_window .button,
 #restart_dialog .button,
-#shutdown_dialog .button,
-#user_image {
-    background-color: shade(@lightdm_bg_color, 0.9);
+#shutdown_dialog .button {
+    padding: 3px 15px;
+    border-width: 1px;
+    border-color: shade(@lightdm_bg_color, 0.8);
+    border-radius: 3px;
+    background-color: @lightdm_bg_color;
     background-image: none;
-    color: @lightdm_fg_color;
-    border-color: alpha(@dark_shadow, 0.9);
-    border-radius: 4px;
-    text-shadow: 0px 1px alpha(@dark_shadow, 1.0);
-    box-shadow: inset 1px 0px alpha(@light_shadow, 0.2),
-                inset -1px 0px alpha(@light_shadow, 0.2),
-                inset 0px 1px alpha(@light_shadow, 0.3),
+                                      
+    box-shadow: inset 1px 0px alpha(@light_shadow, 0.1),
+                inset -1px 0px alpha(@light_shadow, 0.1),
+                inset 0px 1px alpha(@light_shadow, 0.1),
                 inset 0px -1px alpha(@light_shadow, 0.1);
 }
 
-/* Add some padding to the buttons, except the user-combobox */
-#cancel_button,
-#login_button,
-#shutdown_button,
-#restart_button {
-    padding: 4px 16px 4px 16px;
+#login_window .button:hover,
+#restart_dialog .button:hover,
+#shutdown_dialog .button:hover {
+    background-color: shade(@lightdm_bg_color, 1.1);
 }
 
-/* Add more padding to the user-avatar */
 #user_image {
-    padding: 4px;
+    padding: 1px;
+
+    /* draw border using box-shadow */
+    box-shadow: inset 1px 0 shade(@lightdm_bg_color, 0.6),
+                inset -1px 0 shade(@lightdm_bg_color, 0.6),
+                inset 0 1px shade(@lightdm_bg_color, 0.6),
+                inset 0 -1px shade(@lightdm_bg_color, 0.6);
 }
 
-/* Highlight for default-buttons and focus for better keyboard-navigation */
+/******************
+ * default button *
+ ******************/
 #login_window .button.default,
 #restart_dialog .button.default,
 #shutdown_dialog .button.default,
 #login_window .button:focus,
 #restart_dialog .button:focus,
 #shutdown_dialog .button:focus {
-    background-color: shade(@lightdm_bg_color, 1.25);
-    box-shadow: inset 1px 0px alpha(@light_shadow, 0.3),
-                inset -1px 0px alpha(@light_shadow, 0.3),
-                inset 0px 1px alpha(@light_shadow, 0.4),
-                inset 0px -1px alpha(@light_shadow, 0.2);
+    border-color: shade(@theme_selected_bg_color, 0.8);
 }
 
-/* General button hover-effect */
-#login_window .button:hover,
-#restart_dialog .button:hover,
-#shutdown_dialog .button:hover {
-    background-color: shade(@lightdm_bg_color, 1.35);
+/****************
+ * login button *
+ ****************/
+#login_button.button {
+    border-color: shade(@theme_selected_bg_color, 0.8);
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
 }
 
-/* Login/Unlock button is blue on hover */
 #login_button.button:hover {
-    background-color: shade(@theme_selected_bg_color, 0.6);
+    background-color: shade(@theme_selected_bg_color, 1.1);
 }
 
-/* Shutdown button is red on hover */
+/*******************
+ * shutdown button *
+ *******************/
+#shutdown_button.button {
+    border-color: shade(@error_bg_color, 0.8);
+    background-color: @error_bg_color;
+    color: @error_fg_color;
+}
+
 #shutdown_button.button:hover {
-    background-color: shade(@error_bg_color,0.95);
+    background-color: shade(@error_bg_color, 1.1);
 }
 
-/* Restart button is dark yellow on hover */
+/******************
+ * restart button *
+ ******************/
+#restart_button.button {
+    border-color: shade(@warning_bg_color, 0.8);
+    background-color: @warning_bg_color;
+    color: @warning_fg_color;
+}
+
 #restart_button.button:hover {
-    background-color: shade(@warning_bg_color,0.75);
+    background-color: shade(@warning_bg_color, 1.1);
 }

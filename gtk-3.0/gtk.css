@@ -8,6 +8,10 @@
 @define-color tooltip_bg_color #000;
 @define-color tooltip_fg_color #e1e1e1;
 
+/* dark color scheme */
+@define-color dark_bg_color #333;
+@define-color dark_fg_color #eee;
+
 /* colormap actually used by the theme, to be overridden in other css files */
 @define-color theme_bg_color @bg_color;
 @define-color theme_fg_color @fg_color;
@@ -49,9 +53,13 @@
 @define-color panel_fg_color #fcfcfc;
 
 /* osd */
-@define-color osd_base #333;
-@define-color osd_fg #eee;
+@define-color osd_base @dark_bg_color;
+@define-color osd_fg @dark_fg_color;
 @define-color osd_bg alpha(@osd_base, 0.8);
+
+/* lightdm greeter colors */
+@define-color lightdm_bg_color @theme_base_color;
+@define-color lightdm_fg_color @theme_text_color;
 
 /* window manager colors */
 @define-color wm_bg_a shade(@theme_bg_color, 1.07);
@@ -62,10 +70,6 @@
 @define-color wm_title_unfocused_shadow shade(@theme_bg_color, 1.1);
 @define-color wm_border_focused shade(@theme_bg_color, 0.7);
 @define-color wm_border_unfocused shade(@theme_bg_color, 0.8);
-
-/* lightdm greeter color scheme */
-@define-color lightdm_bg_color #242424;
-@define-color lightdm_fg_color #efefef;
 
 @import url("gtk-widgets.css");
 @import url("gtk-widgets-assets.css");
