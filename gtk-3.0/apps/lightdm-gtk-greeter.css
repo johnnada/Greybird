@@ -239,7 +239,7 @@
     color: @error_fg_color;
 }
 
-#shutdown_button.button:hover
+#shutdown_button.button:hover,
 #shutdown_button.button:active,
 #shutdown_button.button:active:hover {
     border-color: shade(@error_bg_color, 0.7);
