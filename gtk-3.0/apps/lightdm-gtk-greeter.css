@@ -66,6 +66,16 @@
     box-shadow: none;
 }
 
+#login_window GtkComboBox .button:focus,
+#login_window GtkComboBox .button:hover:focus,
+#login_window GtkComboBox .button:active:focus,
+#login_window GtkComboBox .button:active:hover:focus {
+    box-shadow: inset 1px 0 alpha(@theme_selected_bg_color, 0.6),
+                inset -1px 0 alpha(@theme_selected_bg_color, 0.6),
+                inset 0 1px alpha(@theme_selected_bg_color, 0.6),
+                inset 0 -1px alpha(@theme_selected_bg_color, 0.6);
+}
+
 #login_window #user_combobox {
     color: @lightdm_fg_color;
     font: Raleway 24px;
