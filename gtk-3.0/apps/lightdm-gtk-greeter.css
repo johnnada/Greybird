@@ -173,17 +173,11 @@
 #shutdown_dialog .button.default,
 #restart_dialog .button.default,
 #login_window .button:focus,
-#login_window .button:hover:focus,
 #login_window .button:active:focus,
-#login_window .button:active:hover:focus,
 #shutdown_dialog .button:focus,
-#shutdown_dialog .button:hover:focus,
 #shutdown_dialog .button:active:focus,
-#shutdown_dialog .button:active:hover:focus,
 #restart_dialog .button:focus,
-#restart_dialog .button:hover:focus,
-#restart_dialog .button:active:focus,
-#restart_dialog .button:active:hover:focus {
+#restart_dialog .button:active:focus {
     border-color: shade(@theme_selected_bg_color, 0.8);
     background-image: linear-gradient(to bottom,
                                       shade(@theme_selected_bg_color, 1.02),
@@ -196,8 +190,19 @@
 
 #login_window .button.default:hover,
 #shutdown_dialog .button.default:hover,
-#restart_dialog .button.default:hover {
+#restart_dialog .button.default:hover,
+#login_window .button:hover:focus,
+#login_window .button:active:hover:focus,
+#shutdown_dialog .button:hover:focus,
+#shutdown_dialog .button:active:hover:focus,
+#restart_dialog .button:hover:focus,
+#restart_dialog .button:active:hover:focus {
     border-color: shade(@theme_selected_bg_color, 0.7);
+    background-image: linear-gradient(to bottom,
+                                      shade(@theme_selected_bg_color, 1.12),
+                                      shade(@theme_selected_bg_color, 1.05) 90%,
+                                      shade(@theme_selected_bg_color, 1.00)
+                                      );
 }
 
 /****************
@@ -238,6 +243,11 @@
 #shutdown_button.button:active,
 #shutdown_button.button:active:hover {
     border-color: shade(@error_bg_color, 0.7);
+    background-image: linear-gradient(to bottom,
+                                      shade(@error_bg_color, 1.12),
+                                      shade(@error_bg_color, 1.05) 90%,
+                                      shade(@error_bg_color, 1.00)
+                                      );
 }
 
 /******************
@@ -258,4 +268,9 @@
 #restart_button.button:active,
 #restart_button.button:active:hover {
     border-color: shade(@warning_bg_color, 0.7);
+    background-image: linear-gradient(to bottom,
+                                      shade(@warning_bg_color, 1.12),
+                                      shade(@warning_bg_color, 1.05) 90%,
+                                      shade(@warning_bg_color, 1.00)
+                                      );
 }
