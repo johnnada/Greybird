@@ -78,7 +78,7 @@
 
 #login_window #user_combobox {
     color: @lightdm_fg_color;
-    font: Raleway 24px;
+    font: 24px;
 }
 
 #login_window #user_combobox .menu {
