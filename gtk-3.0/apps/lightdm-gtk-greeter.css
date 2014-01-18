@@ -13,9 +13,6 @@
 #panel_window .menubar > .menuitem {
     background-color: transparent;
     color: white;
-}
-
-#panel_window .menubar .menuitem {
     font: bold;
     text-shadow: 0 1px alpha(black, 0.5);
     icon-shadow: 0 1px alpha(black, 0.5);
@@ -56,9 +53,13 @@
 }
 
 #login_window GtkComboBox .button,
-#login_window GtkComboBox .button:focus,
 #login_window GtkComboBox .button:hover,
-#login_window GtkComboBox .button:active {
+#login_window GtkComboBox .button:active,
+#login_window GtkComboBox .button:active:hover,
+#login_window GtkComboBox .button:focus,
+#login_window GtkComboBox .button:hover:focus,
+#login_window GtkComboBox .button:active:focus,
+#login_window GtkComboBox .button:active:hover:focus {
     padding: 0;
     background: none;
     border-style: none;                                      
@@ -89,6 +90,8 @@
                                       shade(@lightdm_bg_color, 0.97) 30%,
                                       shade(@lightdm_bg_color, 1.02)
                                       );
+
+    color: @lightdm_fg_color;
                                       
     box-shadow: none;
     transition: all 150ms ease-out;
