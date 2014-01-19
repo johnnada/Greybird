@@ -23,6 +23,10 @@
     text-shadow: none;
 }
 
+#panel_window .menubar .menu {
+    border-radius: 1px;
+}
+
 #panel_window .menubar .menu .menuitem {
     font: normal;
     text-shadow: none;
@@ -50,6 +54,10 @@
                 inset -1px 0 shade(@lightdm_bg_color, 0.6),
                 inset 0 1px shade(@lightdm_bg_color, 0.6),
                 inset 0 -1px shade(@lightdm_bg_color, 0.6);
+}
+
+#login_window .menu {
+    border-radius: 1px;
 }
 
 #login_window GtkComboBox .button,
